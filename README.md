@@ -16,7 +16,7 @@ Este README explica como iniciar e rodar o projeto **Wallet** tanto com Docker (
 
   - PHP ≥ 8.3
   - Composer
-  - MySQL ≥ 5.7 (ou MariaDB)
+  - MySQL ≥ 8.0
 
 ---
 
