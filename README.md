@@ -57,6 +57,7 @@ Este README explica como iniciar e rodar o projeto **Wallet** tanto com Docker (
    > ```
 
 5. **Acessar a aplicação**
+
    Abra no navegador:
 
    ```
