@@ -1,0 +1,33 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+    environment:
+      CI_ENVIRONMENT: development
+    # edita permissões antes de subir o Apache
+    command: >
+      sh -c "
+        chown -R www-data:www-data /var/www/html/writable &&
+        chmod -R 0777 /var/www/html/writable &&
+        apache2-foreground
+      "
+
+  db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: wallet
+      MYSQL_USER: wallet_user
+      MYSQL_PASSWORD: wallet_pass
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+
+

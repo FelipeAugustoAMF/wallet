@@ -1,0 +1,418 @@
+CRITICAL - 2025-05-06 18:55:49 --> CodeIgniter\Exceptions\CriticalError: The required PHP extension "mysqli" is not loaded. Install and enable it to use "MySQLi" driver.
+[Method: CLI, Route: migrate]
+in SYSTEMPATH/Database/Database.php on line 182.
+ 1 SYSTEMPATH/Database/Database.php(59): CodeIgniter\Database\Database->checkDbExtension('MySQLi')
+ 2 SYSTEMPATH/Database/Config.php(82): CodeIgniter\Database\Database->load([...], 'default')
+ 3 SYSTEMPATH/Common.php(363): CodeIgniter\Database\Config::connect('default', true)
+ 4 SYSTEMPATH/Database/MigrationRunner.php(145): db_connect(null)
+ 5 SYSTEMPATH/Config/Services.php(421): CodeIgniter\Database\MigrationRunner->__construct(Object(Config\Migrations), null)
+ 6 SYSTEMPATH/Config/BaseService.php(312): CodeIgniter\Config\Services::migrations(Object(Config\Migrations), null, false)
+ 7 SYSTEMPATH/Config/BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('migrations', [...])
+ 8 SYSTEMPATH/Config/Services.php(416): CodeIgniter\Config\BaseService::getSharedInstance('migrations', null, null)
+ 9 SYSTEMPATH/Config/BaseService.php(321): CodeIgniter\Config\Services::migrations()
+10 SYSTEMPATH/Config/BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('migrations', [])
+11 SYSTEMPATH/Common.php(1000): CodeIgniter\Config\BaseService::get('migrations')
+12 SYSTEMPATH/Commands/Database/Migrate.php(70): service('migrations')
+13 SYSTEMPATH/CLI/Commands.php(74): CodeIgniter\Commands\Database\Migrate->run([])
+14 SYSTEMPATH/CLI/Console.php(47): CodeIgniter\CLI\Commands->run('migrate', [])
+15 SYSTEMPATH/Boot.php(360): CodeIgniter\CLI\Console->run()
+16 SYSTEMPATH/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+17 ROOTPATH/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+ERROR - 2025-05-06 19:33:25 --> mysqli_sql_exception: Invalid default value for 'created_at' in /var/www/html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:327
+Stack trace:
+#0 /var/www/html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(327): mysqli->query('CREATE TABLE `t...', 0)
+#1 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 /var/www/html/vendor/codeigniter4/framework/system/Database/Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 /var/www/html/app/Database/Migrations/2025-05-06-192821_CreateTransactions.php(24): CodeIgniter\Database\Forge->createTable('transactions')
+#5 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(876): App\Database\Migrations\CreateTransactions->up()
+#6 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /var/www/html/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /var/www/html/vendor/codeigniter4/framework/system/CLI/Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /var/www/html/vendor/codeigniter4/framework/system/CLI/Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /var/www/html/vendor/codeigniter4/framework/system/Boot.php(360): CodeIgniter\CLI\Console->run()
+#11 /var/www/html/vendor/codeigniter4/framework/system/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 /var/www/html/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2025-05-06 19:33:43 --> mysqli_sql_exception: Invalid default value for 'created_at' in /var/www/html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:327
+Stack trace:
+#0 /var/www/html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(327): mysqli->query('CREATE TABLE `t...', 0)
+#1 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 /var/www/html/vendor/codeigniter4/framework/system/Database/Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 /var/www/html/app/Database/Migrations/2025-05-06-192821_CreateTransactions.php(24): CodeIgniter\Database\Forge->createTable('transactions')
+#5 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(876): App\Database\Migrations\CreateTransactions->up()
+#6 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /var/www/html/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /var/www/html/vendor/codeigniter4/framework/system/CLI/Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /var/www/html/vendor/codeigniter4/framework/system/CLI/Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /var/www/html/vendor/codeigniter4/framework/system/Boot.php(360): CodeIgniter\CLI\Console->run()
+#11 /var/www/html/vendor/codeigniter4/framework/system/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 /var/www/html/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2025-05-06 19:38:13 --> mysqli_sql_exception: Invalid default value for 'created_at' in /var/www/html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:327
+Stack trace:
+#0 /var/www/html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(327): mysqli->query('CREATE TABLE `t...', 0)
+#1 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 /var/www/html/vendor/codeigniter4/framework/system/Database/Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 /var/www/html/app/Database/Migrations/2025-05-06-192821_CreateTransactions.php(24): CodeIgniter\Database\Forge->createTable('transactions')
+#5 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(876): App\Database\Migrations\CreateTransactions->up()
+#6 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /var/www/html/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /var/www/html/vendor/codeigniter4/framework/system/CLI/Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /var/www/html/vendor/codeigniter4/framework/system/CLI/Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /var/www/html/vendor/codeigniter4/framework/system/Boot.php(360): CodeIgniter\CLI\Console->run()
+#11 /var/www/html/vendor/codeigniter4/framework/system/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 /var/www/html/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2025-05-06 19:39:44 --> mysqli_sql_exception: Invalid default value for 'created_at' in /var/www/html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:327
+Stack trace:
+#0 /var/www/html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(327): mysqli->query('CREATE TABLE `t...', 0)
+#1 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 /var/www/html/vendor/codeigniter4/framework/system/Database/Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 /var/www/html/app/Database/Migrations/2025-05-06-192821_CreateTransactions.php(24): CodeIgniter\Database\Forge->createTable('transactions')
+#5 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(876): App\Database\Migrations\CreateTransactions->up()
+#6 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /var/www/html/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /var/www/html/vendor/codeigniter4/framework/system/CLI/Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /var/www/html/vendor/codeigniter4/framework/system/CLI/BaseCommand.php(119): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /var/www/html/vendor/codeigniter4/framework/system/Commands/Database/MigrateRefresh.php(87): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 /var/www/html/vendor/codeigniter4/framework/system/CLI/Commands.php(74): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 /var/www/html/vendor/codeigniter4/framework/system/CLI/Console.php(47): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 /var/www/html/vendor/codeigniter4/framework/system/Boot.php(360): CodeIgniter\CLI\Console->run()
+#14 /var/www/html/vendor/codeigniter4/framework/system/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#15 /var/www/html/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#16 {main}
+ERROR - 2025-05-06 19:40:32 --> mysqli_sql_exception: Invalid default value for 'created_at' in /var/www/html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:327
+Stack trace:
+#0 /var/www/html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(327): mysqli->query('CREATE TABLE `t...', 0)
+#1 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 /var/www/html/vendor/codeigniter4/framework/system/Database/Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 /var/www/html/app/Database/Migrations/2025-05-06-192821_CreateTransactions.php(28): CodeIgniter\Database\Forge->createTable('transactions')
+#5 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(876): App\Database\Migrations\CreateTransactions->up()
+#6 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /var/www/html/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /var/www/html/vendor/codeigniter4/framework/system/CLI/Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /var/www/html/vendor/codeigniter4/framework/system/CLI/BaseCommand.php(119): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /var/www/html/vendor/codeigniter4/framework/system/Commands/Database/MigrateRefresh.php(87): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 /var/www/html/vendor/codeigniter4/framework/system/CLI/Commands.php(74): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 /var/www/html/vendor/codeigniter4/framework/system/CLI/Console.php(47): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 /var/www/html/vendor/codeigniter4/framework/system/Boot.php(360): CodeIgniter\CLI\Console->run()
+#14 /var/www/html/vendor/codeigniter4/framework/system/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#15 /var/www/html/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#16 {main}
+ERROR - 2025-05-06 19:50:38 --> mysqli_sql_exception: Duplicate entry 'admin@example.com' for key 'users.email' in /var/www/html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:327
+Stack trace:
+#0 /var/www/html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(327): mysqli->query('INSERT INTO `us...', 0)
+#1 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 /var/www/html/app/Database/Seeds/DevSeeder.php(12): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 /var/www/html/vendor/codeigniter4/framework/system/Database/Seeder.php(149): App\Database\Seeds\DevSeeder->run()
+#6 /var/www/html/vendor/codeigniter4/framework/system/Commands/Database/Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#7 /var/www/html/vendor/codeigniter4/framework/system/CLI/Commands.php(74): CodeIgniter\Commands\Database\Seed->run(Array)
+#8 /var/www/html/vendor/codeigniter4/framework/system/CLI/Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#9 /var/www/html/vendor/codeigniter4/framework/system/Boot.php(360): CodeIgniter\CLI\Console->run()
+#10 /var/www/html/vendor/codeigniter4/framework/system/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#11 /var/www/html/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#12 {main}
+DEBUG - 2025-05-06 22:49:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-06 22:49:39 --> Error: Object of class CodeIgniter\HTTP\Response could not be converted to string
+[Method: GET, Route: api/balance]
+in SYSTEMPATH/Database/Query.php on line 339.
+ 1 SYSTEMPATH/Database/Query.php(339): strtr('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...])
+ 2 SYSTEMPATH/Database/Query.php(314): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...])
+ 3 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 4 SYSTEMPATH/Database/BaseConnection.php(652): CodeIgniter\Database\Query->getQuery()
+ 5 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...], false)
+ 6 SYSTEMPATH/Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 7 SYSTEMPATH/BaseModel.php(717): CodeIgniter\Model->doFirst()
+ 8 APPPATH/Controllers/WalletController.php(24): CodeIgniter\BaseModel->first()
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\WalletController->balance()
+10 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletController))
+11 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-06 22:49:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-06 22:49:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-06 22:49:50 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\WalletModel::lockForUpdate
+[Method: POST, Route: api/deposit]
+in SYSTEMPATH/Model.php on line 930.
+ 1 APPPATH/Controllers/WalletController.php(41): CodeIgniter\Model->__call('lockForUpdate', [])
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\WalletController->deposit()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletController))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-06 22:49:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-06 22:49:50 --> Error: Object of class CodeIgniter\HTTP\Response could not be converted to string
+[Method: GET, Route: api/balance]
+in SYSTEMPATH/Database/Query.php on line 339.
+ 1 SYSTEMPATH/Database/Query.php(339): strtr('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...])
+ 2 SYSTEMPATH/Database/Query.php(314): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...])
+ 3 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 4 SYSTEMPATH/Database/BaseConnection.php(652): CodeIgniter\Database\Query->getQuery()
+ 5 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...], false)
+ 6 SYSTEMPATH/Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 7 SYSTEMPATH/BaseModel.php(717): CodeIgniter\Model->doFirst()
+ 8 APPPATH/Controllers/WalletController.php(24): CodeIgniter\BaseModel->first()
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\WalletController->balance()
+10 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletController))
+11 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-06 22:49:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-06 22:49:51 --> Error: Object of class CodeIgniter\HTTP\Response could not be converted to string
+[Method: GET, Route: api/balance]
+in SYSTEMPATH/Database/Query.php on line 339.
+ 1 SYSTEMPATH/Database/Query.php(339): strtr('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...])
+ 2 SYSTEMPATH/Database/Query.php(314): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...])
+ 3 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 4 SYSTEMPATH/Database/BaseConnection.php(652): CodeIgniter\Database\Query->getQuery()
+ 5 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...], false)
+ 6 SYSTEMPATH/Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 7 SYSTEMPATH/BaseModel.php(717): CodeIgniter\Model->doFirst()
+ 8 APPPATH/Controllers/WalletController.php(24): CodeIgniter\BaseModel->first()
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\WalletController->balance()
+10 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletController))
+11 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-06 22:49:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-06 22:49:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-06 22:49:53 --> Error: Object of class CodeIgniter\HTTP\Response could not be converted to string
+[Method: GET, Route: api/balance]
+in SYSTEMPATH/Database/Query.php on line 339.
+ 1 SYSTEMPATH/Database/Query.php(339): strtr('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...])
+ 2 SYSTEMPATH/Database/Query.php(314): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...])
+ 3 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 4 SYSTEMPATH/Database/BaseConnection.php(652): CodeIgniter\Database\Query->getQuery()
+ 5 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...], false)
+ 6 SYSTEMPATH/Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 7 SYSTEMPATH/BaseModel.php(717): CodeIgniter\Model->doFirst()
+ 8 APPPATH/Controllers/WalletController.php(24): CodeIgniter\BaseModel->first()
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\WalletController->balance()
+10 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletController))
+11 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-06 22:50:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-06 22:50:01 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\WalletModel::lockForUpdate
+[Method: POST, Route: api/deposit]
+in SYSTEMPATH/Model.php on line 930.
+ 1 APPPATH/Controllers/WalletController.php(41): CodeIgniter\Model->__call('lockForUpdate', [])
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\WalletController->deposit()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletController))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-06 22:50:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-06 22:50:02 --> Error: Object of class CodeIgniter\HTTP\Response could not be converted to string
+[Method: GET, Route: api/balance]
+in SYSTEMPATH/Database/Query.php on line 339.
+ 1 SYSTEMPATH/Database/Query.php(339): strtr('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...])
+ 2 SYSTEMPATH/Database/Query.php(314): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...])
+ 3 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 4 SYSTEMPATH/Database/BaseConnection.php(652): CodeIgniter\Database\Query->getQuery()
+ 5 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...], false)
+ 6 SYSTEMPATH/Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 7 SYSTEMPATH/BaseModel.php(717): CodeIgniter\Model->doFirst()
+ 8 APPPATH/Controllers/WalletController.php(24): CodeIgniter\BaseModel->first()
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\WalletController->balance()
+10 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletController))
+11 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-06 23:09:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-06 23:09:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-06 23:09:52 --> Error: Object of class CodeIgniter\HTTP\Response could not be converted to string
+[Method: GET, Route: api/balance]
+in SYSTEMPATH/Database/Query.php on line 339.
+ 1 SYSTEMPATH/Database/Query.php(339): strtr('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...])
+ 2 SYSTEMPATH/Database/Query.php(314): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...])
+ 3 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 4 SYSTEMPATH/Database/BaseConnection.php(652): CodeIgniter\Database\Query->getQuery()
+ 5 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...], false)
+ 6 SYSTEMPATH/Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 7 SYSTEMPATH/BaseModel.php(717): CodeIgniter\Model->doFirst()
+ 8 APPPATH/Controllers/WalletController.php(24): CodeIgniter\BaseModel->first()
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\WalletController->balance()
+10 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletController))
+11 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-06 23:10:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-06 23:10:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-06 23:10:20 --> Error: Object of class CodeIgniter\HTTP\Response could not be converted to string
+[Method: GET, Route: api/balance]
+in SYSTEMPATH/Database/Query.php on line 339.
+ 1 SYSTEMPATH/Database/Query.php(339): strtr('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...])
+ 2 SYSTEMPATH/Database/Query.php(314): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...])
+ 3 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 4 SYSTEMPATH/Database/BaseConnection.php(652): CodeIgniter\Database\Query->getQuery()
+ 5 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `wallets`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...], false)
+ 6 SYSTEMPATH/Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 7 SYSTEMPATH/BaseModel.php(717): CodeIgniter\Model->doFirst()
+ 8 APPPATH/Controllers/WalletController.php(24): CodeIgniter\BaseModel->first()
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\WalletController->balance()
+10 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletController))
+11 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-06 23:42:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-06 23:42:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-06 23:44:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-06 23:45:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-06 23:45:47 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\WalletModel::lockForUpdate
+[Method: POST, Route: api/transfer]
+in SYSTEMPATH/Model.php on line 930.
+ 1 APPPATH/Controllers/WalletController.php(76): CodeIgniter\Model->__call('lockForUpdate', [])
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\WalletController->transfer()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletController))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-06 23:45:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-06 23:45:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-06 23:45:51 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\WalletModel::lockForUpdate
+[Method: POST, Route: api/transfer]
+in SYSTEMPATH/Model.php on line 930.
+ 1 APPPATH/Controllers/WalletController.php(76): CodeIgniter\Model->__call('lockForUpdate', [])
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\WalletController->transfer()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletController))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-06 23:45:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-06 23:46:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-06 23:46:38 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\WalletModel::lockForUpdate
+[Method: POST, Route: api/deposit]
+in SYSTEMPATH/Model.php on line 930.
+ 1 APPPATH/Controllers/WalletController.php(41): CodeIgniter\Model->__call('lockForUpdate', [])
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\WalletController->deposit()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletController))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-06 23:46:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-06 23:50:09 --> ErrorException: Cannot redeclare App\Controllers\WalletController::transfer()
+[Method: POST, Route: api/deposit]
+in APPPATH/Controllers/WalletController.php on line 121.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2025-05-06 23:50:10 --> ErrorException: Cannot redeclare App\Controllers\WalletController::transfer()
+[Method: GET, Route: api/balance]
+in APPPATH/Controllers/WalletController.php on line 121.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+DEBUG - 2025-05-06 23:51:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-06 23:51:12 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\WalletModel::lockForUpdate
+[Method: POST, Route: api/deposit]
+in SYSTEMPATH/Model.php on line 930.
+ 1 APPPATH/Controllers/WalletController.php(41): CodeIgniter\Model->__call('lockForUpdate', [])
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\WalletController->deposit()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletController))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-06 23:51:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-06 23:51:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-06 23:51:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-06 23:51:54 --> Error: Call to undefined method CodeIgniter\Database\MySQLi\Builder::forUpdate()
+[Method: POST, Route: api/transfer]
+in APPPATH/Controllers/WalletController.php on line 89.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\WalletController->transfer()
+ 2 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletController))
+ 3 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-06 23:51:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-06 23:53:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-06 23:53:02 --> Error: Call to undefined method CodeIgniter\Database\MySQLi\Builder::lock()
+[Method: POST, Route: api/transfer]
+in APPPATH/Controllers/WalletController.php on line 89.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\WalletController->transfer()
+ 2 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletController))
+ 3 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-06 23:53:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
