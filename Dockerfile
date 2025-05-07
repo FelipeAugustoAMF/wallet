@@ -11,7 +11,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# ---------------------------  NOVO  -------------------------------
 # O Apache deve servir /var/www/html/public (onde fica index.php do CI4)
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 RUN a2enmod rewrite \
